@@ -3,13 +3,6 @@
 #include<string.h>
 #include<float.h>
 
-void displayMenu()
-{
-	printf("0 - print menu");
-	printf("1 - ");
-
-
-}
 
 void readFile(float arr[26]) {
 
@@ -129,14 +122,12 @@ int breakCaesar(char text[], float expected[26])
 	{
 		char copy[500];
 		strcpy_s(copy, 500, text);
-		encrypt(copy, -i);
+		encrypt(copy, i);
 		float histogram[26] = { 0.0 };
 		computeFrequency(histogram, copy);
 		float distance = Chi_Squared_Distance(histogram, expected);
-		printf("Distance: %f\n", distance);
 		if (distance < minDistance)
 		{
-			printf("minDistance: %f", distance);
 			minDistance = distance;
 			result = i;
 		}
@@ -145,32 +136,61 @@ int breakCaesar(char text[], float expected[26])
 	
 }
 
+void displayMenu()
+{
+	printf("Menu");
+	printf("\n---------------------------------\n");
+	printf("0 - print menu\n");
+	printf("1 - compute the normalized frequency of each character (a histogram) in a text\n");
+	printf("2 - compute the Chi - square distance between two histograms\n");
+	printf("3 - break the Caesar's cipher and print the permutation with the least Chi squared distance\n");
+	printf("-1 - exit");
+	printf("\n---------------------------------\n");
+}
+
 int main()
 {
 	float arr[26];
-	readFile(arr);
-	float sum = 0.0;
-	for (int i = 0; i < 26; i++)
-	{
-		sum = sum + arr[i];
-		printf("%f\n", arr[i]);
-	}
-	printf("Sum: %f\n", sum);
-	char text[500];
-	fgets(text, 500, stdin);
 	float histogram[26] = { 0.0 };
-	computeFrequency(histogram, text);
-	for (int i = 0; i < 26; i++)
+	readFile(arr);
+	displayMenu();
+	int option;
+	char text[500];
+	printf("Enter the text: ");
+	fgets(text, 500, stdin);
+	printf("Enter a command: ");
+	scanf_s("%d", &option);
+	switch (option)
 	{
-		printf("%f ", histogram[i]);
+	case -1:
+		exit(-1);
+	case 0:
+		displayMenu();
+		break;
+	case 1:
+		computeFrequency(histogram, text);
+		for (int i = 0; i < 26; i++)
+		{
+			printf("Frequency of %c: %f\n", text[i], histogram[i]);
+		}
+		printf("\n");
+		break;
+	case 2:
+		computeFrequency(histogram, text);
+		float distance = Chi_Squared_Distance(histogram, arr);
+		printf("The distance is %f\n", distance);
+		break;
+	case 3:
+		int n; 
+		n = breakCaesar(text, arr);
+		encrypt(text, n);
+		printf("\n");
+		printf("%s\nN: %d\n", text, n);
+		break;
+	default:
+		printf("\nInvalid option. Please try again\n");
+		break;
 	}
-	printf("\n");
-
-	float distance = Chi_Squared_Distance(histogram, arr);
-	printf("The distance is: %f\n", distance);
-	int n = breakCaesar(text, arr);
-	encrypt(text, -n);
 	
-	printf("%s\n", text);
 	return 0;
 }

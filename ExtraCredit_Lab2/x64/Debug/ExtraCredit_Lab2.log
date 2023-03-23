@@ -1,6 +1,6 @@
 ﻿  main.c
-C:\Users\Admin\Desktop\OOP\Labs\ExtraCredit_Lab2\ExtraCredit_Lab2\main.c(37,36): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Admin\Desktop\OOP\Labs\ExtraCredit_Lab2\ExtraCredit_Lab2\main.c(43,36): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Admin\Desktop\OOP\Labs\ExtraCredit_Lab2\ExtraCredit_Lab2\main.c(111,43): warning C4013: 'tolower' undefined; assuming extern returning int
-C:\Users\Admin\Desktop\OOP\Labs\ExtraCredit_Lab2\ExtraCredit_Lab2\main.c(112,12): warning C4013: 'toupper' undefined; assuming extern returning int
+C:\Users\Admin\Desktop\OOP\Labs\ExtraCredit_Lab2\ExtraCredit_Lab2\main.c(30,36): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Admin\Desktop\OOP\Labs\ExtraCredit_Lab2\ExtraCredit_Lab2\main.c(36,36): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Admin\Desktop\OOP\Labs\ExtraCredit_Lab2\ExtraCredit_Lab2\main.c(104,43): warning C4013: 'tolower' undefined; assuming extern returning int
+C:\Users\Admin\Desktop\OOP\Labs\ExtraCredit_Lab2\ExtraCredit_Lab2\main.c(105,12): warning C4013: 'toupper' undefined; assuming extern returning int
   ExtraCredit_Lab2.vcxproj -> C:\Users\Admin\Desktop\OOP\Labs\ExtraCredit_Lab2\x64\Debug\ExtraCredit_Lab2.exe
